@@ -38,7 +38,7 @@ def signup(request):
 #Enviar rorreo eLectrónica para activar usuario
 def SendEmailActivateUser(request, user):
     current_site = get_current_site(request)
-    subject = 'Activacion de cuenta '
+    subject = 'Activar cuenta Hojas de Vida'
     html_content = render_to_string('email/account_activation.html',{
          'user': user,
          'domain': current_site.domain,
@@ -51,7 +51,6 @@ def SendEmailActivateUser(request, user):
     )
     msg.attach_alternative(html_content,"text/html")
     msg.send()
-
 
 #Activar un usuario que previamente se ha registrado
 def ActivateUser(request, uidb64, token, backend='django.contrib.auth.backends.ModelBackend'):
@@ -71,7 +70,6 @@ def ActivateUser(request, uidb64, token, backend='django.contrib.auth.backends.M
 
 def templateEmailSent(request, username):
     return render(request,'registration/account_activation.html', {'username': username})
-
 
 class UserList(PermissionRequiredMixin, ListView):
     permission_required = 'users.listarusuarios'

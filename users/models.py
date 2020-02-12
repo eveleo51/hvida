@@ -12,5 +12,8 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.PROTECT)
     rol = models.OneToOneField(Rol, on_delete=models.PROTECT)
 
+    def __str__(self):
+        return self.user.profile.rol.descripcion
+
     class Meta:
         permissions = (("listarusuarios", "listarusuarios"),)
