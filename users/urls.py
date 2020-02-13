@@ -1,5 +1,4 @@
 from django.urls import path
-
 from.views import signup, ActivateUser, templateEmailSent, UserList, UserApp
 
 urlpatterns = [

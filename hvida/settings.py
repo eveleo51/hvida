@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'contacto',
     'users',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -119,3 +120,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'eahernandezc@uniremingtonmanizales.edu.co'
 EMAIL_HOST_PASSWORD ='juanjose0344'
 EMAIL_PORT = 465
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "templates/media")
+MEDIA_URL = '/media/'
