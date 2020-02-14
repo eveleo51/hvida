@@ -11,4 +11,4 @@ urlpatterns = [
     path('/eliminar/<int:pk>/', views.BadgetDelete.as_view(), name='eliminar'),
     path('users/', include(('users.urls','users'), namespace='users')),
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
