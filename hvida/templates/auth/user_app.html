@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+  {% load static %}
+  {% block content %}
+  <div class="container">
+    <h4 class="m-5">Página donde solo pueden ingresar los autenticados</h4>
+  </div>
+  <h1>Crear Contacto</h1>
+  <form method="post" enctype="multipart/form-data">
+       {% csrf_token %}
+       {{ form.as_p }}
+       <div class="input-field col s12">
+          <input type="submit" value="Add" class="blue darken-1 btn">
+       </div>
+  </form>
+{% endblock %}
