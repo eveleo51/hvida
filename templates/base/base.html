@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -8,6 +9,7 @@
   <body>
     <div class = "container">
        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         <img src="{% static 'images\Logo.png' %}" title="logo" height="42" width="42" />
       <a class="navbar-brand" href="{% url '' %}" >Inicio</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
