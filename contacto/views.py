@@ -7,7 +7,6 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView, CreateView, DeleteView
 from .forms import DataForm
 
-# Create your views here.
 
 #class ListarProductos(ListView):
 #    template_name = 'user_app.html'
