@@ -49,3 +49,9 @@ class BadgetDelete(DeleteView):
 
 def home(request):
     return render (request,"home.html")
+
+
+class UserAppCreate(CreateView):
+    model= Contacto
+    fields = ['nombre', 'cedula', 'ciudad', 'telefono', 'mail', 'profesion', 'dependencia', 'cargo', 'archivo']
+    template_name = "auth/user_app.html"

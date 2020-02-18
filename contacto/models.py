@@ -15,3 +15,6 @@ class Contacto(models.Model):
 #======================================================
 def __str__(self):
     return self.nombre
+
+def get_success_url(self):
+    return reverse('')
