@@ -1,9 +1,19 @@
+{% extends 'base/base.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   </head>
   <body>
 
@@ -12,12 +22,14 @@
         <div class="row">
           <div class="col-md-3"></div>
             <div class="col-md-6 login-form-1">
-              <h3>Iniciar Sesión en Hojas de Vida</h3>
+              <h3 style="text-align:center;">Registrarse en GEMA</h3>
               <form method="post">
                 {% csrf_token %}
                 {{form.as_p}}
                 <div class="form-group" style="text-align:center;">
-                  <input type="submit" class="btnSubmit" value="Iniciar Sesión" />
+                  <button class="btn waves-effect waves-light" type="submit" name="action">Registrarse
+                      <i class="material-icons right">fingerprint</i>
+                  </button>
                 </div>
 
               </form>
@@ -31,3 +43,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
 </html>
+{% endblock %}

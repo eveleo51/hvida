@@ -5,6 +5,7 @@ from .forms import SignupForm
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
+from contacto.models import Contacto
 #envio de correo para activar cuenta
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
@@ -16,6 +17,7 @@ from django.core.mail import EmailMultiAlternatives
 
 # ListView
 from django.views.generic.list import ListView
+from django.views.generic.edit import UpdateView, CreateView, DeleteView
 #Login Requerido
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import permission_required
@@ -38,7 +40,7 @@ def signup(request):
 #Enviar rorreo eLectrónica para activar usuario
 def SendEmailActivateUser(request, user):
     current_site = get_current_site(request)
-    subject = 'Activacion de cuenta '
+    subject = 'Activar cuenta Hojas de Vida'
     html_content = render_to_string('email/account_activation.html',{
          'user': user,
          'domain': current_site.domain,
@@ -51,7 +53,6 @@ def SendEmailActivateUser(request, user):
     )
     msg.attach_alternative(html_content,"text/html")
     msg.send()
-
 
 #Activar un usuario que previamente se ha registrado
 def ActivateUser(request, uidb64, token, backend='django.contrib.auth.backends.ModelBackend'):
@@ -71,7 +72,6 @@ def ActivateUser(request, uidb64, token, backend='django.contrib.auth.backends.M
 
 def templateEmailSent(request, username):
     return render(request,'registration/account_activation.html', {'username': username})
-
 
 class UserList(PermissionRequiredMixin, ListView):
     permission_required = 'users.listarusuarios'

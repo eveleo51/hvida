@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'contacto',
     'users',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -108,7 +109,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR),'static')
+STATICFILES_DIRS = (os.path.join(BASE_DIR), 'static')
+
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -119,3 +121,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'eahernandezc@uniremingtonmanizales.edu.co'
 EMAIL_HOST_PASSWORD ='juanjose0344'
 EMAIL_PORT = 465
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "templates/media")
+MEDIA_URL = '/media/'
