@@ -5,28 +5,34 @@ from django.http import HttpResponseRedirect
 
 from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView, CreateView, DeleteView
-from .forms import Contacto
+from .forms import DataForm
 
-# Create your views here.
-
-#class ListarProductos(ListView):
-#    template_name = 'user_app.html'
-
-class Badgetview(ListView):
-    model='user_app.html'  #pagina de registrados
-    context_object_name='listcontac'
-
-    def get_queryset(self):
-        query = contacto.objects.filter(cedula=10203040)
-        return query
-
-#Este es la clase para Crear los productos
-class BadgetCreate(CreateView):
-    model = 'user_app.html'  #pagina de registrados
-    fields = ['nombre','cedula','ciudad','telefono','mail','profesion','dependencia','cargo','archivo']
+class UserAppCreate(CreateView):
+    model= Contacto
+    fields = ['nombre', 'cedula', 'ciudad', 'telefono', 'mail', 'profesion', 'dependencia', 'cargo', 'archivo']
+    template_name = "auth/user_app.html"
 
     def get_success_url(self):  #redirecciona una vez ejecutado el proceso anterior
         return reverse('')
+
+#Este es la clase para Crear los productos
+#    def get_success_url(self):
+#        return render(request, "auth/user_app.html", {'form': form})
+#    def get_success_url(self):  #redirecciona una vez ejecutado el proceso anterior
+#        return reverse('')
+
+class UserAppView(ListView):
+    model=Contacto
+#    context_object_name='listcontact'
+    template_name = "auth/contact_list.html"
+
+    def get_queryset(self):
+        # query = Contacto.objects.filter(cedula=1010)
+        query = Contacto.objects.all()
+        return query
+
+#    def get_success_url(self):  #redirecciona una vez ejecutado el proceso anterior
+#        return reverse('')
 
 class BadgetUpdate(UpdateView):
     model = 'user_app.html'  #pagina de registrados

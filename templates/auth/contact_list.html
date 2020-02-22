@@ -17,40 +17,55 @@
 
                   <thead>
                     <tr>
-                      <th>Balance</th>
-                      <th>Ingresos</th>
-                      <th>Gastos</th>
+                      <th>Nombre</th>
+                      <th>Cedula</th>
+                      <th>Ciudad</th>
+                      <th>Telefono</th>
+                      <th>E-mail</th>
+                      <th>Profesion</th>
+                      <th>Dependencia</th>
+                      <th>Cargo</th>
+                      <th>Curriculum Vitae</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {% for data in balance %}
+
+                    {% for data in object_list %}
                     <tr>
-                      <td>{{ data.saldo }}</td>
-                      <td>{{ data.ingresos }}</td>
-                      <td>{{ data.gastos }}</td>
+                      <td>{{ data.nombre }}</td>
+                      <td>{{ data.cedula }}</td>
+                      <td>{{ data.ciudad }}</td>
+                      <td>{{ data.telefono }}</td>
+                      <td>{{ data.mail }}</td>
+                      <td>{{ data.profesion }}</td>
+                      <td>{{ data.dependencia }}</td>
+                      <td>{{ data.cargo }}</td>
                       <td>
-                        <a href="{% url 'editar' data.id %}">
+                        <a  href="http://localhost:8000/media/{{ data.archivo }}"> Curriculum Vitae</a>
+                      </td>
+                      <td>
+<!--       -->
+                        <a href="{% url 'editar' data.cedula %}">
                             <i class="material-icons">create</i>
                         </a>
-                        <a href="{% url 'eliminar' data.id %}">
+                        <a href="{% url 'eliminar' data.cedula %}">
                             <i class="material-icons">clear</i>
                         </a>
-
 
                       </td>
                     </tr>
 
 
                     {% endfor %}
+
                   </tbody>
                 </table>
         <!--Botón para agregar nuevo movimiento-->
         <div class="fixed-action-btn">
-          <a href="{% url 'crear' %}" class="btn-floating btn-large red">
+          <a href="{% url 'users:userapp' %}" class="btn-floating btn-large red">
             <i class="large material-icons">add</i>
           </a>
         </div>
-
 
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

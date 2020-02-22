@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -8,6 +9,7 @@
   <body>
     <div class = "container">
        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         <img src="{% static 'images\Logo.png' %}" title="logo" height="42" width="42" />
       <a class="navbar-brand" href="{% url '' %}" >Inicio</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,17 +17,24 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          {% if user.profile.rol.descripcion == "Administrador" %}
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'users:listar' %}">Usuarios <span class="sr-only">(current)</span></a>
-            </li>
-          {% endif %}
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'users:userapp' %}">Ingresar <span class="sr-only">(current)</span></a>
-          </li>
-        </ul>
         {% if user.is_authenticated %}
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'users:userapp' %}">Agregar Hoja <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav mr-auto">
+            {% if user.profile.rol.descripcion == "Administrador" %}
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'users:listar' %}">Listar Usuarios <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'users:listcontact' %}">Listar Hojas <span class="sr-only">(current)</span></a>
+              </li>
+            {% endif %}
+          </ul>
+
             <h6 class="ml-5">Usuario: {{ user.username }} - Rol: {{ user.profile.rol.descripcion }}
               -Permiso: {{ perms.users.listarusuarios }}</h6>
             <a href="{% url 'logout' %}" class="btn btn-info ml-2">Cerrar Sesión</a>
@@ -33,6 +42,8 @@
           <a href="{% url 'users:signup' %}" class="btn btn-light ml-5">Registrarse</a>
           <a href="{% url 'login' %}" class="btn btn-info">Iniciar Sesión</a>
         {% endif %}
+
+
       </div>
     </nav>
     {% block content %}

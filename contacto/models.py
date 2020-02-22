@@ -12,6 +12,8 @@ class Contacto(models.Model):
     cargo = models.CharField(max_length=50)
     archivo = models.FileField(upload_to="archivos/%Y/%m/%d")
 
-#======================================================
-#    def __str__(self):
-#        return self.user.profile.rol.descripcion
+    def __str__(self):
+        return self.nombre
+
+    def get_success_url(self):
+        return reverse('')

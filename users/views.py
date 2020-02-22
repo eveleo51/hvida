@@ -5,6 +5,7 @@ from .forms import SignupForm
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
+from contacto.models import Contacto
 #envio de correo para activar cuenta
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
@@ -16,6 +17,7 @@ from django.core.mail import EmailMultiAlternatives
 
 # ListView
 from django.views.generic.list import ListView
+from django.views.generic.edit import UpdateView, CreateView, DeleteView
 #Login Requerido
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import permission_required
