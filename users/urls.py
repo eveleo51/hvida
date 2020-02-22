@@ -1,18 +1,7 @@
 from django.urls import path
-<<<<<<< HEAD
 from.views import signup, ActivateUser, templateEmailSent, UserList
 from contacto.views import UserAppCreate, UserAppView
 #, UserApp
-=======
-<<<<<<< HEAD
-from.views import signup, ActivateUser, templateEmailSent, UserList
-from contacto.views import UserAppCreate, UserAppView
-#, UserApp
-=======
-from.views import signup, ActivateUser, templateEmailSent, UserList, UserApp
-
->>>>>>> 2abdc2136b00fa8c3d7b3e9173a0c1d97a1bea15
->>>>>>> 6ef28ef31abdcc475da430903b4593df99bab6f4
 urlpatterns = [
     path('signup/', signup, name='signup'),
     path('activate/<str:uidb64>/<str:token>/', ActivateUser, name='activate'),

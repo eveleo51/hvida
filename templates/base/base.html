@@ -22,10 +22,6 @@
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'users:userapp' %}">Agregar Hoja <span class="sr-only">(current)</span></a>
             </li>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 6ef28ef31abdcc475da430903b4593df99bab6f4
           </ul>
 
           <ul class="navbar-nav mr-auto">
@@ -39,17 +35,6 @@
             {% endif %}
           </ul>
 
-<<<<<<< HEAD
-=======
-=======
-          {% endif %}
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'users:userapp' %}">Ingresar <span class="sr-only">(current)</span></a>
-          </li>
-        </ul>
-        {% if user.is_authenticated %}
->>>>>>> 2abdc2136b00fa8c3d7b3e9173a0c1d97a1bea15
->>>>>>> 6ef28ef31abdcc475da430903b4593df99bab6f4
             <h6 class="ml-5">Usuario: {{ user.username }} - Rol: {{ user.profile.rol.descripcion }}
               -Permiso: {{ perms.users.listarusuarios }}</h6>
             <a href="{% url 'logout' %}" class="btn btn-info ml-2">Cerrar Sesión</a>
