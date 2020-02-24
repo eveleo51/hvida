@@ -2,12 +2,25 @@
 .container .Inicio  {
   color: #403d3d ;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+h1{
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold !important;
+    color: #274367;
+    /*text-transform: lowercase; */
+    margin-top: 20px !important;
 }
 
 .miclase{
   color: #403d3d ;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .miclase li{
@@ -30,4 +43,12 @@
 .miclase li a{
   color: #403d3d;
   text-decoration: none;
+}
+
+.table-employee i {
+  color: #00acc1 ;
+}
+
+.pagination-employee li:nth-child(2){
+  background: #00acc1 !important ;
 }
