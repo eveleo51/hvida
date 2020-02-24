@@ -1,0 +1,33 @@
+
+.container .Inicio  {
+  color: #403d3d ;
+  text-decoration: none;
+}
+
+.miclase{
+  color: #403d3d ;
+  display: flex;
+  align-items: center;
+}
+
+.miclase li{
+  list-style: none;
+  margin-right: 12px  ;
+  transition: background .7s ;
+  padding: 4px 12px;
+
+}
+
+/*.miclase li:nth-child(1){
+  background: #b2ebf2;
+  padding: 4px 7px;
+}*/
+
+.miclase li:hover{
+  background: #b2ebf2;
+}
+
+.miclase li a{
+  color: #403d3d;
+  text-decoration: none;
+}
