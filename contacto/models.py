@@ -1,6 +1,7 @@
 from django.db import models
 import datetime
 # Create your models here.
+#Tabla oara el almacenamiento ....
 class Contacto(models.Model):
     nombre = models.CharField(max_length=200)
     cedula = models.DecimalField(max_digits=10, decimal_places=0, null=False)  #obligatorio
@@ -10,7 +11,7 @@ class Contacto(models.Model):
     profesion = models.CharField(max_length=50)
     dependencia = models.CharField(max_length=40)
     cargo = models.CharField(max_length=50)
-    archivo = models.FileField(upload_to="archivos/%Y/%m/%d")
+    archivo = models.FileField(upload_to="archivos/%Y/%m/%d", null=False)
 
     def __str__(self):
         return self.nombre

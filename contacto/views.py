@@ -20,7 +20,7 @@ class UserAppView(ListView):
     model=Contacto
 #    context_object_name='listcontact'
     template_name = "auth/contact_list.html"
-    paginate_by = 10        #Defino numero de elementos por página
+    paginate_by = 5        #Defino numero de elementos por página
 
     def get_queryset(self):
         # query = Contacto.objects.filter(cedula=1010)

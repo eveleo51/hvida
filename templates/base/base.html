@@ -19,33 +19,6 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!--comienzo del navbar
-      <div class="collapse navbar-collapse miclase" id="navbarSupportedContent">
-        {% if user.is_authenticated %}
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'users:userapp' %}">Agregar hoja de vida<span class="sr-only">(current)</span></a>
-            </li>
-          </ul>
-
-          <ul class="navbar-nav mr-auto">
-            {% if user.profile.rol.descripcion == "Administrador" %}
-              <li class="nav-item active">
-                <a class="nav-link" href="{% url 'users:listar' %}">Listar usuarios <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="{% url 'users:listcontact' %}">Listar empleados<span class="sr-only">(current)</span></a>
-              </li>
-            {% endif %}
-          </ul>
-            <h6 class="ml-5">Usuario: {{ user.username }} - Rol: {{ user.profile.rol.descripcion }}
-              -Permiso: {{ perms.users.listarusuarios }}</h6>
-            <a href="{% url 'logout' %}" class="btn btn-info ml-2">Cerrar Sesión</a>
-        {% else %}
-          <a href="{% url 'users:signup' %}" class="btn btn-light ml-5">Registrarse</a>
-          <a href="{% url 'login' %}" class="btn btn-info">Iniciar Sesión</a>
-        {% endif %}
-      </div><!--fIN DEL navbar -->
 
       <div class="miclase" id="navbarSupportedContent">
         {% if user.is_authenticated %}
@@ -74,8 +47,32 @@
     {% block content %}
     {% endblock %}
     </div>
-
   </body>
+  <footer class="page-footer grey darken-1">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <img src="{% static 'images\Logo.png' %}"  title="logo" height="42" width="42" />
+          <p class="grey-text text-lighten-4">Aplicativo para el contros de hojas de vida</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Sobre Nosotros</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Uniremington</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      © 2020 Maria José Buitrago - Evelio Atonio Hernandez
+      <a class="grey-text text-lighten-4 right">Uniremington Manizales</a>
+      </div>
+    </div>
+  </footer>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
