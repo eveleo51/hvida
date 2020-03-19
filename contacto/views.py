@@ -13,7 +13,6 @@ class UserAppCreate(CreateView):
     fields = ['nombre', 'cedula', 'ciudad', 'telefono', 'mail', 'profesion', 'dependencia', 'cargo', 'archivo']
     template_name = "auth/user_app.html"
     def get_success_url(self):  #redirecciona una vez ejecutado el proceso anterior
-
         return reverse('')
 
 class UserAppView(ListView):
