@@ -49,8 +49,8 @@ div.container{
 }
 
 .row{
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
 }
 
 footer{
@@ -64,9 +64,17 @@ footer{
   background: rgba(255, 255, 255, 0.788235294117647);
   margin-top: 20px;
   border-radius: 10px 10px 9px 10px;
--moz-border-radius: 10px 10px 9px 10px;
--webkit-border-radius: 10px 10px 9px 10px;
-border: 0px solid #000000;
+  -moz-border-radius: 10px 10px 9px 10px;
+  -webkit-border-radius: 10px 10px 9px 10px;
+  border: 0px solid #000000;
+}
+
+.responsive-table,
+.table,
+.striped{
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.788235294117647);
+  margin-top: 20px;
 }
 
 label {
