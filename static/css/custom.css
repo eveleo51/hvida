@@ -31,6 +31,47 @@ h1{
 
 }
 
+div.container{
+  max-width: none;
+  padding: 0px;
+}
+
+.row,
+.form-group{
+  margin-bottom: 0px !important;
+}
+
+.container-1{
+  padding-bottom: 20px;
+  background: transparent url('../images/3369337.jpg') no-repeat;
+  background-size: contain;
+  background-position: bottom;
+}
+
+.row{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+footer{
+  padding: 20px;
+}
+
+.login-form-1{
+  padding: 20px;
+  border: 1px solid white ;
+  border-style: groove;
+  background: rgba(255, 255, 255, 0.788235294117647);
+  margin-top: 20px;
+  border-radius: 10px 10px 9px 10px;
+-moz-border-radius: 10px 10px 9px 10px;
+-webkit-border-radius: 10px 10px 9px 10px;
+border: 0px solid #000000;
+}
+
+label {
+    font-size: 1rem !important;
+}
 
 /*.miclase li:nth-child(1){
   background: #b2ebf2;
