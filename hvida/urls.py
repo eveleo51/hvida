@@ -1,11 +1,11 @@
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth.decorators import login_required
 from contacto import views
-# from . import views
 
 from django.conf.urls.static import static
 from django.conf import settings
-from django.contrib.auth.decorators import login_required
+
 
 
 urlpatterns = [
