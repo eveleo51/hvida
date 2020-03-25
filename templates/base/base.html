@@ -23,7 +23,7 @@
       <div class="miclase" id="navbarSupportedContent">
         {% if user.is_authenticated %}
             <li class="">
-              <a class="" href="{% url 'users:userapp' %}">Agregar hoja de vida<span class="sr-only">(current)</span></a>
+              <a class="" href="{% url 'crear' %}">Agregar hoja de vida<span class="sr-only">(current)</span></a>
             </li>
 
             {% if user.profile.rol.descripcion == "Administrador" %}
@@ -31,7 +31,7 @@
                 <a class="" href="{% url 'users:listar' %}">Listar usuarios <span class="sr-only">(current)</span></a>
               </li>
               <li class="">
-                <a class="" href="{% url 'users:listcontact' %}">Listar empleados<span class="sr-only">(current)</span></a>
+                <a class="" href="{% url 'listcontact' %}">Listar empleados<span class="sr-only">(current)</span></a>
               </li>
             {% endif %}
 
