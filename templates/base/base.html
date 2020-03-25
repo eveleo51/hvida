@@ -19,7 +19,6 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="miclase" id="navbarSupportedContent">
         {% if user.is_authenticated %}
             <li class="">
@@ -39,11 +38,13 @@
               -Permiso: {{ perms.users.listarusuarios }}</h6>
             <a href="{% url 'logout' %}" class="btn btn-info ml-2">Cerrar Sesión</a>
         {% else %}
+
           <a href="{% url 'users:signup' %}" class="btn btn-light ml-5">Registrarse</a>
           <a href="{% url 'login' %}" class="btn btn-info">Iniciar Sesión</a>
         {% endif %}
       </div>
     </nav>
+    </div>
     {% block content %}
     {% endblock %}
     </div>

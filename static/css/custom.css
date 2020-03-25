@@ -102,3 +102,7 @@ label {
 .pagination-employee li:nth-child(2){
   background: #00acc1 !important ;
 }
+
+.dropdown {
+  aria-expanded="true" !important ;
+}
