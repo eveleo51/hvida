@@ -1,80 +1,97 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="{% static 'css\custom.css' %}">
+    </head>
 
-    <link rel="stylesheet" href="{% static 'css\custom.css' %}">
-  </head>
-  <body>
-    <div class = "container">
-       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="Inicio" href="{% url '' %}" >
-        <img src="{% static 'images\Logo.png' %}"  title="logo" height="42" width="42" />
-        Inicio
-      </a>
+    <body>
+        <div class = "container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="Inicio" href="{% url '' %}" >
+                    <img src="{% static 'images\Logo.png' %}"  title="logo" height="42" width="42" />
+                    Inicio
+                </a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="miclase" id="navbarSupportedContent">
-        {% if user.is_authenticated %}
-            <li class="">
-              <a class="" href="{% url 'crear' %}">Agregar hoja de vida<span class="sr-only">(current)</span></a>
-            </li>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="miclase" id="navbarSupportedContent">
+                    {% if user.is_authenticated %}
+                        <ul>
+                            <li class="">
+                                <a class="" href="{% url 'crear' %}">Agregar hoja de vida<span class="sr-only">(current)</span></a>
+                            </li>
 
-            {% if user.profile.rol.descripcion == "Administrador" %}
-              <li class="">
-                <a class="" href="{% url 'users:listar' %}">Listar usuarios <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="">
-                <a class="" href="{% url 'listcontact' %}">Listar empleados<span class="sr-only">(current)</span></a>
-              </li>
-            {% endif %}
+                            {% if user.profile.rol.descripcion == "Administrador" %}
+                            <li class="">
+                                <a class="" href="{% url 'users:listar' %}">Listar usuarios <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="">
+                                <a class="" href="{% url 'listcontact' %}">Listar empleados<span class="sr-only">(current)</span></a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                        <!-- Dropdown Trigger -->
+                        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
 
-            <h6 class="ml-5">Usuario: {{ user.username }} - Rol: {{ user.profile.rol.descripcion }}
-              -Permiso: {{ perms.users.listarusuarios }}</h6>
-            <a href="{% url 'logout' %}" class="btn btn-info ml-2">Cerrar Sesión</a>
-        {% else %}
+                        <!-- Dropdown Structure -->
+                        <ul id='dropdown1' class='dropdown-content blue-text'>
+                            <li><a href="#!">one</a></li>
+                            <li><a href="#!">two</a></li>
+                            <li class="divider" tabindex="-1"></li>
+                            <li><a href="#!">three</a></li>
+                            <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+                            <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+                        </ul>
 
-          <a href="{% url 'users:signup' %}" class="btn btn-light ml-5">Registrarse</a>
-          <a href="{% url 'login' %}" class="btn btn-info">Iniciar Sesión</a>
-        {% endif %}
-      </div>
-    </nav>
-    </div>
-    {% block content %}
-    {% endblock %}
-    </div>
-  </body>
-  <footer class="page-footer grey darken-1">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <img src="{% static 'images\Logo.png' %}"  title="logo" height="42" width="42" />
-          <p class="grey-text text-lighten-4">Aplicativo para el control de hojas de vida</p>
+                        <h6 class="ml-5">Usuario: {{ user.username }} - Rol: {{ user.profile.rol.descripcion }}
+                            -Permiso: {{ perms.users.listarusuarios }}
+                        </h6>
+                        <a href="{% url 'logout' %}" class="btn btn-info ml-2">Cerrar Sesión</a>
+                    {% else %}
+
+                        <a href="{% url 'users:signup' %}" class="btn btn-light ml-5">Registrarse</a>
+                        <a href="{% url 'login' %}" class="btn btn-info">Iniciar Sesión</a>
+                    {% endif %}
+                </div>
+            </nav>
         </div>
-        <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Sobre Nosotros</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Uniremington</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-      © 2020 Maria José Buitrago - Evelio Atonio Hernandez
-      <a class="grey-text text-lighten-4 right">Uniremington Manizales</a>
-      </div>
-    </div>
-  </footer>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer class="page-footer grey darken-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <img src="{% static 'images\Logo.png' %}"  title="logo" height="42" width="42" />
+                        <p class="grey-text text-lighten-4">Aplicativo para el control de hojas de vida</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Links</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3" href="#!">Sobre Nosotros</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Uniremington</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright grey darken-1">
+                <div class="container">
+                    &copy; 2020 Maria José Buitrago - Evelio Atonio Hernandez
+                    <a class="grey-text text-lighten-4 right">Uniremington Manizales</a>
+                </div>
+            </div>
+        </footer>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="{% static 'js\custom.js' %}"></script>
+    </body>
 </html>

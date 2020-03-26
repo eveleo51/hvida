@@ -103,6 +103,18 @@ label {
   background: #00acc1 !important ;
 }
 
-.dropdown {
-  aria-expanded="true" !important ;
+.dropdown-content li,
+.dropdown-content li > a,
+.dropdown-content li > span{
+  color: inherit !important;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
