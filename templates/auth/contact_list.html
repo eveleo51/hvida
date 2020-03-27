@@ -1,100 +1,97 @@
 {% extends 'base/base.html' %}
-  {% load static %}
-  {% block content %}
+{% load static %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <meta charset="utf-8">
-    <title>Listado empleados</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col s12 m12">
-          <div class="responsive-table" class="table table-bordered">
-              <h1 style="text-align:center;">Lista de empleados</h1>
-                <table  class="table table-hover table-employee">
+    <head>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <meta charset="utf-8">
+        <title>Listado empleados</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12">
+                    <div class="responsive-table" class="table table-bordered">
+                        <h1 style="text-align:center;">Lista de empleados</h1>
+                        <table  class="table table-hover table-employee">
 
-                  <thead>
-                    <tr>
-                      <th>Nombre completo</th>
-                      <th>Cedula</th>
-                      <th>Ciudad</th>
-                      <th>Telefono</th>
-                      <th>E-mail</th>
-                      <th>Dependencia</th>
-                      <th>Cargo</th>
-                      <th>Hoja de vida</th>
-                      <th>Editar</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {% for data in object_list %}
-                    <tr>
-                      <td><strong>{{ data.nombre }}</strong> <ul>{{ data.profesion }}</ul></td>
-                      <td>{{ data.cedula }}</td>
-                      <td>{{ data.ciudad }}</td>
-                      <td>{{ data.telefono }}</td>
-                      <td>{{ data.mail }}</td>
-                      <td>{{ data.dependencia }}</td>
-                      <td>{{ data.cargo }}</td>
-                      <td>
-                        <a  href="http://localhost:8000/media/{{ data.archivo }}">
-                        <i class="material-icons">picture_as_pdf</i>
-                        </a>
-                      </td>
-                      <td>
-                        <a href="{% url 'editar' data.id %}">
-                            <i class="material-icons">create</i>
-                        </a>
-
-                      </td>
-                    </tr>
-                    {% endfor %}
-                  </tbody>
-                </table>
-              </div>
+                            <thead>
+                                <tr>
+                                    <th>Nombre completo</th>
+                                    <th>Cedula</th>
+                                    <th>Ciudad</th>
+                                    <th>Telefono</th>
+                                    <th>E-mail</th>
+                                    <th>Dependencia</th>
+                                    <th>Cargo</th>
+                                    <th>Hoja de vida</th>
+                                    <th>Editar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for data in object_list %}
+                                    <tr>
+                                        <td><strong>{{ data.nombre }}</strong> <ul>{{ data.profesion }}</ul></td>
+                                        <td>{{ data.cedula }}</td>
+                                        <td>{{ data.ciudad }}</td>
+                                        <td>{{ data.telefono }}</td>
+                                        <td>{{ data.mail }}</td>
+                                        <td>{{ data.dependencia }}</td>
+                                        <td>{{ data.cargo }}</td>
+                                        <td>
+                                            <a  href="http://localhost:8000/media/{{ data.archivo }}">
+                                                <i class="material-icons">picture_as_pdf</i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'editar' data.id %}">
+                                                <i class="material-icons">create</i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-          </div>
-        {% if is_paginated %}
-          <ul class="pagination justify-content-center pagination-employee">
-            {% if page_obj.has_previous %}
-            <li class="page-item">
-              <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
-            </li>
-            {% else %}
-           <li class="page-item disabled"><a class="page-link">&laquo;</a></li>
-           {% endif %}
-           {% for i in paginator.page_range %}
-            {% if page_obj.number == i %}
-              <li class="page-item active">
-                <a class="page-link">{{ i }}</a>
-              </li>
-            {% else %}
-              <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% if is_paginated %}
+                <ul class="pagination justify-content-center pagination-employee">
+                    {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled"><a class="page-link">&laquo;</a></li>
+                   {% endif %}
+                   {% for i in paginator.page_range %}
+                        {% if page_obj.number == i %}
+                            <li class="page-item active">
+                                <a class="page-link">{{ i }}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if page_obj.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                    {% else %}
+                        <li class="page-item disabled"><a class="page-link">&raquo;</a></li>
+                    {% endif %}
+                </ul>
             {% endif %}
-          {% endfor %}
-          {% if page_obj.has_next %}
-            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
-          {% else %}
-            <li class="page-item disabled"><a class="page-link">&raquo;</a></li>
-          {% endif %}
-        </ul>
-      {% endif %}
-    </div>
-  </body>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
 </html>
-
 {% endblock %}

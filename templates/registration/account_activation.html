@@ -1,8 +1,20 @@
 {% extends 'base/base.html' %}
-  {% load static %}
-  {% block content %}
-  <div class="container">
-    <h4 class="m-5">Estimado(a) {{ username }}! Hemos enviado un correo electrónico,
-      para que finalice el proceso de registro</h4>
-  </div>
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Confirnación</title>
+    </head>
+    <body>
+        <div class="container">
+            <h4 class="m-5">
+                Estimado(a) {{ username }}! Hemos enviado un correo electrónico,
+                para que finalice el proceso de registro
+            </h4>
+        </div>
+    </body>
+</html>
+
 {% endblock %}
