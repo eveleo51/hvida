@@ -7,6 +7,7 @@
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link rel="stylesheet" href="{% static 'css\custom.css' %}">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 
     <body>
@@ -36,23 +37,19 @@
                             </li>
                             {% endif %}
                         </ul>
-                        <!-- Dropdown Trigger -->
-                        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
 
-                        <!-- Dropdown Structure -->
-                        <ul id='dropdown1' class='dropdown-content blue-text'>
-                            <li><a href="#!">one</a></li>
-                            <li><a href="#!">two</a></li>
-                            <li class="divider" tabindex="-1"></li>
-                            <li><a href="#!">three</a></li>
-                            <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-                            <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-                        </ul>
+                        <div class="dropdown">
+                          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Mis opciones
+                          </a>
 
-                        <h6 class="ml-5">Usuario: {{ user.username }} - Rol: {{ user.profile.rol.descripcion }}
-                            -Permiso: {{ perms.users.listarusuarios }}
-                        </h6>
-                        <a href="{% url 'logout' %}" class="btn btn-info ml-2">Cerrar Sesión</a>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <h6 class="ml-5 light-blue-text accent-2">{{ user.username }}</h6>
+                             <h6 class="ml-2">{{ user.profile.rol.descripcion }}</h6>
+                            <a class="dropdown-item" href="{% url 'logout' %}" >Cerrar Sesión</a>
+                          </div>
+                        </div>
+
                     {% else %}
 
                         <a href="{% url 'users:signup' %}" class="btn btn-light ml-5">Registrarse</a>
