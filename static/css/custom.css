@@ -4,6 +4,7 @@
   text-decoration: none;
   display: flex;
   align-items: center;
+  padding: 10px;
 }
 
 h1{
@@ -19,7 +20,7 @@ h1{
   color: #403d3d ;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -81,15 +82,12 @@ label {
     font-size: 1rem !important;
 }
 
-/*.miclase li:nth-child(1){
-  background: #b2ebf2;
-  padding: 4px 7px;
-}*/
-
 .miclase li:hover{
   background: #b2ebf2;
 }
-
+.miclase li a:hover{
+  background: none;
+}
 .miclase li a{
   color: #403d3d;
   text-decoration: none;
@@ -117,4 +115,12 @@ body {
 
 main {
   flex: 1 0 auto;
+}
+.list-container-user{
+    padding: 3% !important;
+}
+
+.btn-register{
+    position: relative;
+    left: 75%;
 }
