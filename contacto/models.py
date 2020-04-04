@@ -1,7 +1,7 @@
 from django.db import models
 import datetime
 # Create your models here.
-#Tabla oara el almacenamiento ....
+#Tabla para el almacenamiento de contactos
 class Contacto(models.Model):
     nombre = models.CharField(max_length=200)
     cedula = models.DecimalField(max_digits=10, decimal_places=0, null=False)  #obligatorio
@@ -18,3 +18,17 @@ class Contacto(models.Model):
 
     def get_success_url(self):
         return reverse('')
+
+#Tabla para el almacenamiento de cargos
+class Cargo(models.Model):
+    nombre = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nombre
+
+#Tabla para el almacenamiento de dependencias
+class Dependencia(models.Model):
+    nombre = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nombre
