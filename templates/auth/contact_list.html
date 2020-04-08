@@ -39,7 +39,7 @@
                             <tbody>
                                 {% for data in object_list %}
                                     <tr>
-                                        <td><strong>{{ data.nombre }}</strong> <ul>{{ data.profesion }}</ul></td>
+                                        <td><strong>{{ data.nombre }}</strong> <ul>{{ data.profesion }}</ul> <ul>{{ data.id}}</ul></td>
                                         <td>{{ data.cedula }}</td>
                                         <td>{{ data.ciudad }}</td>
                                         <td>{{ data.telefono }}</td>
@@ -57,8 +57,8 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="">
-                                                <i class="material-icons">more_horiz</i>
+                                            <a href="{% url 'vercontacto' data.id %}">
+                                                <i class="material-icons">@more_horiz</i>
                                             </a>
                                         </td>
                                     </tr>
