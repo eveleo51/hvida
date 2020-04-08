@@ -125,3 +125,13 @@ main {
     position: relative;
     left: 75%;
 }
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-text{
+    padding: 30px;
+}

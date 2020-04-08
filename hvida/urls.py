@@ -9,6 +9,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('', views.home, name=""),
+    path('about_us/', views.about_us, name="nosotros"),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('crear/', login_required(views.UserAppCreate.as_view()), name='crear'),  #Protegemos las url desde modo incognito
