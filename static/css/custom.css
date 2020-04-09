@@ -139,3 +139,7 @@ main {
 nav a {
     color: #3f44ac;
 }
+
+.table-style{
+    border-collapse: inherit;
+}
