@@ -4,11 +4,16 @@
     <head>
         <meta charset="utf-8">
         <title></title>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'css\custom.css' %}">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    </head>
+
+        </head>
 
     <body>
         <div class = "container">
@@ -37,6 +42,19 @@
                             </li>
                             {% endif %}
                         </ul>
+
+                        <form class="form-inline my-2 my-lg-0">
+                            <table>
+                                <td>
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                                </td>
+                                <td>
+                                    <a href="">
+                                        <i class="material-icons color-icon">search</i>
+                                    </a>
+                                </td>
+                            </table>
+                        </form>
 
                         <div class="dropdown">
                           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

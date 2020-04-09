@@ -135,3 +135,7 @@ main {
 .about-text{
     padding: 30px;
 }
+
+nav a {
+    color: #3f44ac;
+}
