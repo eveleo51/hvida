@@ -8,37 +8,52 @@
     </head>
 
     <body>
-        <div class="container-1">
+        <div class="container-2">
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-3"></div>
-                    <div class="col-md-6 login-form-1">
-                        <h1 style="text-align:center;">estoy en ver Mi hoja de vida</h1>
+                    <div class="col-md-6 detail-list">
+                        <h1 style="text-align:center;">Hoja de vida</h1>
+                        <h2 style="text-align:center;">{{ contacto.nombre }}</h2>
                         <form method="post" enctype="multipart/form-data">
                             <table>
                                 <tr>
-                                  <td>ID</td>
-                                  <td>{{ contacto.id }}</td>
-                                </tr>
-                                <tr>
-                                  <td>Nombre</td>
-                                  <td>{{ contacto.nombre }}</td>
-                                </tr>
-                                <tr>
-                                  <td>IdentificaciÃ³n</td>
+                                  <td><strong>Identificación</strong></td>
                                   <td>{{ contacto.cedula }}</td>
                                 </tr>
                                 <tr>
-                                  <td>Cargo</td>
+                                  <td><strong>Ciudad</strong></td>
+                                  <td>{{ contacto.ciudad }}</td>
+                                </tr>
+                                <tr>
+                                  <td><strong>Telefono</strong></td>
+                                  <td>{{ contacto.telefono }}</td>
+                                </tr>
+                                <tr>
+                                  <td><strong>E-mail</strong></td>
+                                  <td>{{ contacto.mail }}</td>
+                                </tr>
+                                <tr>
+                                  <td><strong>Profesión</strong></td>
+                                  <td>{{ contacto.profesion }}</td>
+                                </tr>
+                                <tr>
+                                  <td><strong>Dependencia</strong></td>
+                                  <td>{{ contacto.dependencia.nombre }}</td>
+                                </tr>
+                                <tr>
+                                  <td><strong>Cargo</strong></td>
                                   <td>{{ contacto.cargo.nombre }}</td>
                                 </tr>
+                                <tr>
+                                  <td><strong>Anexo</strong></td>
+                                  <td>
+                                      <a  target="_blank" href="http://localhost:8000/media/{{ contacto.archivo }}">
+                                          <i class="material-icons">picture_as_pdf</i>
+                                      </a>
+                                  </td>
+                                </tr>
                             </table>
-
-                            <div class="form-group" style="text-align:center;">
-                                <button class="btn waves-effect waves-light" type="submit" name="action">Guardar
-                                    <i class="material-icons right">save</i>
-                                </button>
-                            </div>
                         </form>
                     </div>
                 </div>

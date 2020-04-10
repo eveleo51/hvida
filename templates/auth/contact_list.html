@@ -18,10 +18,6 @@
                             <thead>
                                 <tr>
                                     <th>Nombre completo</th>
-                                    <th>Cedula</th>
-                                    <th>Ciudad</th>
-                                    <th>Telefono</th>
-                                    <th>E-mail</th>
                                     <th>Dependencia</th>
                                     <th>Cargo</th>
                                     <th>Hoja de vida</th>
@@ -32,15 +28,11 @@
                             <tbody>
                                 {% for data in object_list %}
                                     <tr>
-                                        <td><strong>{{ data.nombre }}</strong> <ul>{{ data.profesion }}</ul> <ul>{{ data.id}}</ul></td>
-                                        <td>{{ data.cedula }}</td>
-                                        <td>{{ data.ciudad }}</td>
-                                        <td>{{ data.telefono }}</td>
-                                        <td>{{ data.mail }}</td>
+                                        <td><strong>{{ data.nombre }}</strong> <ul>{{ data.profesion }}</ul></td>
                                         <td>{{ data.dependencia }}</td>
                                         <td>{{ data.cargo }}</td>
                                         <td>
-                                            <a  href="http://localhost:8000/media/{{ data.archivo }}">
+                                            <a align="center"  href="http://localhost:8000/media/{{ data.archivo }}">
                                                 <i class="material-icons">picture_as_pdf</i>
                                             </a>
                                         </td>
@@ -51,7 +43,7 @@
                                         </td>
                                         <td>
                                             <a href="{% url 'vercontacto' data.id %}">
-                                                <i class="material-icons">@more_horiz</i>
+                                                <i class="material-icons">more_horiz</i>
                                             </a>
                                         </td>
                                     </tr>
