@@ -6,23 +6,16 @@ from django.core.paginator import Paginator
 
 from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView, CreateView, DeleteView
+from django.views.generic.detail import DetailView
 from .forms import DataForm
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
-
-class UserAppMostrar(PermissionRequiredMixin,ListView):   # Listar la tabla Contacto
+#Se lista el detalle de una hoja de vida
+class UserDetail(PermissionRequiredMixin,DetailView):   # Listar la tabla Contacto
     permission_required = 'users.listarusuarios'       # Protegemos el Ingreso por URL desde el mismo Modulo
     model=Contacto
     template_name = "auth/contact_ver.html"  #"auth/contact_ver.html"
-    paginate_by = 5        #Defino el numero de elementos por página
-
-    def get_queryset(self):
-        query = Contacto.objects.filter(id=pk)   #user.profile.rol.descripcion
-        return query
-        # query = Contacto.objects.all()
-        # return reverse('')
-        # return render(request, "auth/user_app.html")
 
 class UserAppUpdate(PermissionRequiredMixin,UpdateView):  # Actualizar la tabla Contacto
     permission_required = 'users.listarusuarios'          # Protegemos el Ingreso por URL desde el mismo Modulo

@@ -15,19 +15,24 @@
                     <div class="col-md-6 login-form-1">
                         <h1 style="text-align:center;">estoy en ver Mi hoja de vida</h1>
                         <form method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-
-                            {% for data in object_list %}
+                            <table>
                                 <tr>
-                                    <td><strong>{{ data.nombre }}</strong> <ul>{{ data.profesion }}</ul> <ul>{{ data.id}}</ul></td>
-                                    <td>{{ data.cedula }}</td>
-                                    <td>{{ data.ciudad }}</td>
-                                    <td>{{ data.telefono }}</td>
-                                    <td>{{ data.mail }}</td>
-                                    <td>{{ data.dependencia }}</td>
-                                    <td>{{ data.cargo }}</td>
+                                  <td>ID</td>
+                                  <td>{{ contacto.id }}</td>
                                 </tr>
-                            {% endfor %}
+                                <tr>
+                                  <td>Nombre</td>
+                                  <td>{{ contacto.nombre }}</td>
+                                </tr>
+                                <tr>
+                                  <td>IdentificaciÃ³n</td>
+                                  <td>{{ contacto.cedula }}</td>
+                                </tr>
+                                <tr>
+                                  <td>Cargo</td>
+                                  <td>{{ contacto.cargo.nombre }}</td>
+                                </tr>
+                            </table>
 
                             <div class="form-group" style="text-align:center;">
                                 <button class="btn waves-effect waves-light" type="submit" name="action">Guardar
