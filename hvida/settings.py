@@ -12,7 +12,7 @@ SECRET_KEY = '#3#-1ic5s^f+3h@s*re@!+0sm(b!m2$t!*kp$@4&-uy46z&xv$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -29,6 +29,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -108,6 +109,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),] # new
 
 
+MEDIA_ROOT = os.path.join(BASE_DIR, "templates/media")
+MEDIA_URL = '/media/'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedMainfestStaticFilesStorage'
+
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
@@ -117,6 +123,3 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'eahernandezc@uniremingtonmanizales.edu.co'
 EMAIL_HOST_PASSWORD ='juanjose0344'
 EMAIL_PORT = 465
-
-MEDIA_ROOT = os.path.join(BASE_DIR, "templates/media")
-MEDIA_URL = '/media/'
