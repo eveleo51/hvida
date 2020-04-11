@@ -42,17 +42,21 @@
                             {% endif %}
                         </ul>
 
-                        <form class="form-inline my-2 my-lg-0" action="{% url 'buscar' %}" method="post">
-                          {% csrf_token %}
-                            <table class="table-style">
-                              <td>
-                                  <input class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search" name='search' required>
-                              </td>
-                              <td>
-                                  <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
-                              </td>
-                            </table>
-                        </form>
+                        {% if user.profile.rol.descripcion == "Administrador" %}
+                            <form class="form-inline my-2 my-lg-0" action="{% url 'buscar' %}" method="post">
+                              {% csrf_token %}
+                                <table class="table-style">
+                                  <td>
+                                      <input class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search" name='search' required>
+                                  </td>
+                                  <td>
+                                      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
+                                  </td>
+                                </table>
+                            </form>
+                        {% endif %}
+
+
 
                         <div class="dropdown">
                           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
