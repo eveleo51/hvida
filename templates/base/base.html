@@ -42,16 +42,15 @@
                             {% endif %}
                         </ul>
 
-                        <form class="form-inline my-2 my-lg-0">
+                        <form class="form-inline my-2 my-lg-0" action="{% url 'buscar' %}" method="post">
+                          {% csrf_token %}
                             <table class="table-style">
-                                <td>
-                                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-                                </td>
-                                <td>
-                                    <a href="">
-                                        <i class="material-icons color-icon">search</i>
-                                    </a>
-                                </td>
+                              <td>
+                                  <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name='search' required>
+                              </td>
+                              <td>
+                                  <buttom i class="material-icons color-icon" type="submit">search</i></buttom>
+                              </td>
                             </table>
                         </form>
 

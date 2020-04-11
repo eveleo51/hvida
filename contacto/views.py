@@ -11,6 +11,13 @@ from .forms import DataForm
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
+#funcion para busqueda de empleado por parametro nombre
+def searchContacto(request):
+    if request.method == 'POST':
+        pattern = request.POST['search']
+        contacto= Contacto.objects.filter(nombre__contains=pattern)  # buscamos dentro de nombre la palabra que ingresa (contenida)
+    return render(request,'auth/contact_list.html',{'object_list':contacto, 'search':pattern})
+
 #Se lista el detalle de una hoja de vida
 class UserDetail(PermissionRequiredMixin,DetailView):   # Listar la tabla Contacto
     permission_required = 'users.listarusuarios'       # Protegemos el Ingreso por URL desde el mismo Modulo
